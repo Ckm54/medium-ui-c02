@@ -24,6 +24,8 @@ const Home: NextPage = () => {
         <img className='hidden md:inline-flex h-32 lg:h-full mr-10'
           src="https://seeklogo.com/images/M/medium-logo-31646BE2FD-seeklogo.com.png" alt="logo" />
       </div>
+
+      {/* posts */}
     </div>
   )
 }
