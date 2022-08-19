@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import Header from '../components/Header'
 import { sanityClient, urlFor } from '../sanity'
 import { Post } from '../typings'
@@ -10,7 +11,7 @@ interface Props {
 
 export default function Home({posts}: Props ) {
   
-  console.log(posts)
+  
   return (
     <div className='max-w-7xl mx-auto'>
       <Head>
@@ -34,6 +35,16 @@ export default function Home({posts}: Props ) {
       </div>
 
       {/* posts */}
+
+      <div>
+        {posts.map((post) => (
+          <Link key={post._id} href={`/posts/${post.slug.current}`}>
+            <div>
+              <img src={urlFor(post.mainImage).url()} alt="" />
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }
